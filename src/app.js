@@ -33,6 +33,9 @@ function validateBearer(req, res, next) {
   next();
 }
 
+app.get('/', (req, res) => {
+  res.send('Hello!');
+})
 
 //Sends back data when browser looks at /movie endpoint
 app.get('/movie', (req, res) => {
