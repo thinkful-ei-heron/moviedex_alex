@@ -10,6 +10,9 @@
     "predeploy": "npm audit",
     "deploy": "git push heroku master"
   },
+  "engine": {
+    "node": "12.10.0"
+  },
   "eslintConfig": {
     "globals": {
       "supertest": true,

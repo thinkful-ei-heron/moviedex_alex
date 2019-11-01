@@ -16,12 +16,11 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
-//Grab API key from environment
-const API_KEY = process.env.API_KEY;
-
+app.use(validateBearer);
 
 //Validates API key
 function validateBearer(req, res, next) {
+  const API_KEY = process.env.API_KEY;
   const authVal = req.get('Authorization') || '';
   if(!authVal.startsWith('Bearer ')) {
     return res.status(400).json({ error: 'Authorization token not found'});
